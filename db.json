@@ -1,0 +1,62 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "J",
+      "email": "admin@a",
+      "password": "12",
+      "rol": "admin"
+    },
+    {
+      "id": "fe50",
+      "name": "jhonatan",
+      "email": "j@j",
+      "password": "1234",
+      "rol": "user",
+      "events": []
+    },
+    {
+      "id": "5133",
+      "name": "Juan",
+      "email": "m@m",
+      "password": "123",
+      "rol": "user",
+      "events": []
+    },
+    {
+      "id": "ced4",
+      "fullName": "jhonatan morales",
+      "email": "k@k",
+      "username": "jhonatan",
+      "password": "1234",
+      "role": "user",
+      "events": []
+    }
+  ],
+  "events": [
+    {
+      "name": "evento1",
+      "img": "https://img.freepik.com/foto-gratis/sala-banquetes-decorada-flores_8353-10058.jpg?semt=ais_hybrid&w=740",
+      "description": "Descripción 1",
+      "date": "2025-07-05",
+      "capacity": "14",
+      "id": "3"
+    },
+    {
+      "name": "evento2",
+      "img": "https://img.freepik.com/foto-gratis/sala-banquetes-decorada-flores_8353-10058.jpg?semt=ais_hybrid&w=740",
+      "description": "Descripción 2",
+      "date": "2025-07-11",
+      "capacity": "5",
+      "id": "4"
+    },
+    {
+      "id": "260a",
+      "name": "a",
+      "img": "https://img.freepik.com/free-photo/woman-beach-with-her-baby-enjoying-sunset_52683-144131.jpg?size=626&ext=jpg",
+      "description": "aa",
+      "date": "2025-07-30",
+      "capacity": "33"
+    }
+  ]
+}
