@@ -1,10 +1,9 @@
 const userType = localStorage.getItem("userType");
 const userInfo = localStorage.getItem("userInfo")
 const API_URL = "http://localhost:3000/events/";
-
+let currentEventId = null
 if (userType == "admin") {
     //Admin dashboard
-    let currentEventId = null
 
     // DOM manipulation
     const profileName = document.getElementById("activeUser");
@@ -12,13 +11,13 @@ if (userType == "admin") {
     profileName.textContent = userName
 
     const profileType = document.getElementById("userType");
-    const userKind = JSON.parse(profileType)
+    const userKind = userType
     profileType.textContent = userKind
 
     //Cargar los eventos en pantalla
     async function loadEvents() {
         const eventTable = document.getElementById("eventTable");
-        eventTable.innerHTML = ""; // Limpiar la tabla antes de agregar eventos
+        // eventTable.innerHTML = ""; 
         try {
             const res = await fetch(API_URL);
             const events = await res.json();
@@ -48,7 +47,55 @@ if (userType == "admin") {
         loadEvents();
     });
 
-    //Abrir y cerrar el modal de crear evento
+} else {
+    //Userdashboard
+
+    //DOM manipulation
+    const profileName = document.getElementById("activeUser");
+    const userName = JSON.parse(userInfo).name
+    profileName.textContent = userName
+
+    const profileType = document.getElementById("userType");
+    const userKind = userType
+    profileType.textContent = userKind
+
+    // Load Events
+    async function loadEventsUSer() {
+        const eventTable = document.getElementById("eventTable");
+        const res = await fetch(API_URL)
+        const events = await res.json()
+        events.forEach(event => {
+            eventTable.innerHTML += `
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <img src="${event.img}" class="event-img me-2 img-fluid w-25" alt="Event" />
+                    <p class="fw-bold">${event.name}</p>
+                </div>
+            </td>
+            <td>${event.description}</td>
+            <td>${event.capacity}</td>
+            <td>${event.date}</td>
+            <td class="text-end action-icons">
+                <button class="btn btn-info mb-1" type="button" onclick="subscribeEvent('${event.id}')">Suscribirse</button>
+            </td>
+        </tr>`
+        });
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+        loadEventsUSer()
+    })
+}
+
+
+function logout() {
+        localStorage.setItem("auth", "")
+        localStorage.setItem("userType", "")
+    }
+//logout
+const outBtn = document.getElementById("logoutBtn").addEventListener("click", logout)
+
+ //Abrir y cerrar el modal de crear evento
     async function openModal(id = null) {
         const name = document.getElementById("eventName");
         const img = document.getElementById("eventImg");
@@ -157,55 +204,6 @@ if (userType == "admin") {
         }
         loadEvents();
     }
-
-    //logout
-    const outBtn = document.getElementById("logoutBtn").addEventListener("click", logout)
-
-    function logout() {
-        localStorage.setItem("auth", "")
-        localStorage.setItem("userType", "")
-    }
-
-} else {
-    //Userdashboard
-
-    //DOM manipulation
-    const profileName = document.getElementById("activeUser");
-    const userName = JSON.parse(userInfo).name
-    profileName.textContent = userName
-
-    const profileType = document.getElementById("userType");
-    const userKind = userType
-    profileType.textContent = userKind
-
-    // Load Events
-    async function loadEvents() {
-        const eventTable = document.getElementById("eventTable");
-        const res = await fetch(API_URL)
-        const events = await res.json()
-        events.forEach(event => {
-            eventTable.innerHTML += `
-        <tr>
-            <td>
-                <div class="d-flex align-items-center">
-                    <img src="${event.img}" class="event-img me-2 img-fluid w-25" alt="Event" />
-                    <p class="fw-bold">${event.name}</p>
-                </div>
-            </td>
-            <td>${event.description}</td>
-            <td>${event.capacity}</td>
-            <td>${event.date}</td>
-            <td class="text-end action-icons">
-                <button class="btn btn-info mb-1" type="button" onclick="subscribeEvent('${event.id}')">Suscribirse</button>
-            </td>
-        </tr>`
-        });
-    }
-    document.addEventListener("DOMContentLoaded", function () {
-        loadEvents()
-    })
-}
-
 
 
 
