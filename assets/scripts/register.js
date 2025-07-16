@@ -24,10 +24,14 @@ document.getElementById("registerForm").addEventListener("submit", async (e) => 
                             "name": name,
                             "email": email,
                             "password": password,
-                            "rol": "user"
+                            "rol": "user",
+                            "events": []
                         })
                     })
+                    const user = await res.json()
                     localStorage.setItem("auth", "true")
+                    localStorage.setItem("userInfo", JSON.stringify({ id: user.id, name: user.name }))
+                    localStorage.setItem("userType", "user")
                     window.location = "../../home.html"
                 }
             } catch (error) {
