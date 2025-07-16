@@ -27,11 +27,3 @@ async function auth() {
     }
 }
 const logBtn = document.querySelector(".btn").addEventListener("click", auth)
-
-let test = localStorage.getItem("userInfo")
-
-let uwu = JSON.parse(test).id 
-console.log(uwu);
-
-let test2 = localStorage.getItem("userType")
-console.log(test2);

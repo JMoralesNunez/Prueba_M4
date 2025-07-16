@@ -1,0 +1,81 @@
+:root{
+    --brand-color: #6213f7;
+    --base-color: #ffffff;
+}
+
+body{
+    background-color: rgb(233, 233, 233);
+}
+
+.loginContainer{
+    background-color: var(--base-color);
+    width: 400px;
+}
+
+.loginContainer button, .regisContainer button{
+    font-weight: bold;
+}
+
+button{
+    background-color: var(--brand-color) !important;
+    border: none !important;
+    font-weight: bold !important;
+}
+button:hover{
+    background-color: #5f1fd6 !important;
+}
+
+.regisContainer{
+    background-color: var(--base-color);
+    width: 400px;
+}
+
+.returnBtn{
+    color: var(--brand-color);
+    font-size: 2rem;
+    position: absolute;
+    top: 0;
+    left: 15px;
+}
+
+.actionIcon{
+    background-color: transparent !important;
+    color: var(--brand-color) !important;
+}
+.actionIcon:hover{
+    color: var(--base-color) !important;
+}
+
+.cancelModalBtn{
+    background-color: transparent !important;
+}
+
+.cancelModalBtn:hover{
+    color: var(--base-color) !important;
+}
+
+.logoutBtn{
+    background-color: transparent !important;
+    color: var(--base-color);
+}
+
+.confirmSubs{
+    color: var(--base-color) !important;
+    position: relative;
+    animation: pulse 1s infinite linear backwards;
+}
+
+.subsBtn{
+    color: var(--base-color);
+}
+
+.subsBtn:hover{
+    color: var(--base-color);
+}
+
+
+@keyframes pulse {
+    50%{
+        box-shadow: 0px 0px 10px #1a02479a;
+    }
+}

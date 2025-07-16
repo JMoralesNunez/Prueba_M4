@@ -13,7 +13,16 @@
       "email": "j@j",
       "password": "1234",
       "rol": "user",
-      "events": []
+      "events": [
+        {
+          "id": "5723",
+          "name": "Playa",
+          "img": "https://img.freepik.com/free-photo/beautiful-view-sunset-sea_23-2148019892.jpg?size=626&ext=jpg",
+          "description": "Playita",
+          "date": "2025-07-10",
+          "capacity": "20"
+        }
+      ]
     },
     {
       "id": "5133",
@@ -21,7 +30,16 @@
       "email": "m@m",
       "password": "123",
       "rol": "user",
-      "events": []
+      "events": [
+        {
+          "id": "260a",
+          "name": "a",
+          "img": "https://img.freepik.com/free-photo/woman-beach-with-her-baby-enjoying-sunset_52683-144131.jpg?size=626&ext=jpg",
+          "description": "aa",
+          "date": "2025-07-30",
+          "capacity": "33"
+        }
+      ]
     },
     {
       "id": "ced4",
@@ -57,6 +75,14 @@
       "description": "aa",
       "date": "2025-07-30",
       "capacity": "33"
+    },
+    {
+      "id": "5723",
+      "name": "Playa",
+      "img": "https://img.freepik.com/free-photo/beautiful-view-sunset-sea_23-2148019892.jpg?size=626&ext=jpg",
+      "description": "Playita",
+      "date": "2025-07-10",
+      "capacity": "20"
     }
   ]
 }

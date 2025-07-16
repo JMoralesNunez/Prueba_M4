@@ -12,7 +12,8 @@
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
     <script defer src="./assets/scripts/home.js"></script>
-    <!-- <script defer src="./assets/scripts/guardian.js"></script> -->
+    <script defer src="./assets/scripts/guardian.js"></script>
+    <link rel="stylesheet" href="./assets/custom/custom.css">
 </head>
 
 <body>
@@ -21,36 +22,33 @@
             <div
                 class="col-md-2 sidebar d-flex flex-column align-items-center text-center bg-dark vh-100 text-white p-3">
                 <h5 class="mb-4"><strong>Eventos</strong></h5>
-                <img src="./assets/images/profile.webp" class="profile-pic mb-2 img-fluid" alt="Profile" />
+                <img src="./assets/images/profile.webp" class="profile-pic mb-2 img-fluid rounded-2 w-50" alt="Profile" />
                 <div>
-                    <strong id="activeUser">Random guy</strong>
-                    <div id="userType" style="font-size: 0.85rem;">Admin</div>
+                    <strong id="activeUser"></strong>
+                    <div id="userType" style="font-size: 0.85rem;"></div>
                 </div>
-                <hr class="w-100" />
-                <a href="#" class="btn nav-link w-100 mb-2">
-                    <i class="bi bi-calendar-event-fill me-2"></i> Eventos
-                </a>
-                <button id="logoutBtn" class="btn btn-outline-danger mt-auto">Salir <i class="bi bi-box-arrow-right ms-1"></i></button>
+                <hr class="w-100"/>
+                <div id="userNav" class="container">
+                </div>
+                <button id="logoutBtn" class="btn logoutBtn mt-auto">Salir <i
+                class="bi bi-box-arrow-right ms-1"></i></button>
             </div>
-
-            <!-- Main Content -->
             <div class="col-md-10 py-4">
-                <div class="d-flex justify-content-end mb-3">
-                    <button onclick="openModal()" class="btn btn-primary">+ Nuevo Evento</button>
+                <div id="userActions" class="d-flex justify-content-end mb-3 gap-2">
+                    <button id="newEventBtn" onclick="openModal()" class="btn btn-primary border-0">+ Nuevo Evento</button>
                 </div>
-
                 <div class="table-responsive">
-                    <table class="table table-hover align-middle">
-                        <thead class="table-light">
+                    <table class="table table-hover align-middle table-striped">
+                        <thead class="table-dark">
                             <tr>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Descripción</th>
                                 <th scope="col">Capacidad</th>
                                 <th scope="col">Fecha</th>
-                                <th scope="col" class="text-end">Acciones</th>
+                                <th id="tableActions" scope="col" class="text-end">Acciones</th>
                             </tr>
                         </thead>
-                        <tbody id="eventTable">
+                        <tbody id="eventTable" class="table-group-divider">
                         </tbody>
                     </table>
                 </div>
@@ -84,7 +82,7 @@
                     <input type="number" class="form-control" id="eventCapacity" required>
                 </div>
                 <div class="actions col-12 text-center">
-                    <button id="closeDialog" type="button" class="btn btn-outline-danger">Cancelar</button>
+                    <button id="closeDialog" type="button" class="btn cancelModalBtn">Cancelar</button>
                     <button id="saveEvent" class="btn btn-primary">Guardar</button>
                 </div>
             </form>
